@@ -1,3 +1,15 @@
+// Iniciar sesión
+document.getElementById('formularioLogin').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var usuario = document.getElementById('usuario').value;
+    var contrasena = document.getElementById('contrasena').value;
+    if (localStorage.getItem('usuario') === usuario && localStorage.getItem('contrasena') === contrasena) {
+        document.getElementById('login').classList.add('hidden');
+        document.getElementById('libreta').classList.remove('hidden');
+    } else {
+        alert('Usuario o contraseña incorrectos');
+    }
+});
 
 // Cargar tareas del localStorage al cargar la página
 document.addEventListener('DOMContentLoaded', function() {
@@ -55,3 +67,7 @@ function guardarTareas() {
     }
     localStorage.setItem('tareas', JSON.stringify(tareas));
 }
+
+// Registrar usuario (solo para fines de demostración)
+localStorage.setItem('usuario', 'wilmar');
+localStorage.setItem('contrasena', 'W850811g*');
